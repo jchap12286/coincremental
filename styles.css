@@ -1,0 +1,2382 @@
+#gridContainer {
+    display: none;
+    /* display: grid; */
+    grid-template-areas:
+        'level bar news'
+        'level area feed'
+        'level area seeker';
+    grid-template-columns: 1fr 3fr 2fr;
+    grid-template-rows: 1fr 8fr 5fr;
+    width: 98vw;
+    height: 56.25vw;
+    max-height: 98vh;
+    max-width: 220vh;
+    margin: auto;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    opacity: 1;
+    cursor: default;
+}
+.item1 {
+    grid-area: bar;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    grid-column-start: 2;
+    grid-column-end: 3;
+    border: 2px solid black;
+    border-radius: 5px;
+    background-color: white;
+    margin: 5px;
+}
+.item2 {
+    grid-area: area;
+    grid-row-start: 2;
+    grid-row-end: 4;
+    grid-column-start: 2;
+    grid-column-end: 3;
+    border: 2px solid black;
+    border-radius: 10px;
+    background-color: white;
+    margin: 5px;
+}
+.item3 {
+    grid-area: level;
+    grid-row-start: 1;
+    grid-row-end: 4;
+    grid-column-start: 1;
+    grid-column-end: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.item4 {
+    grid-area: feed;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    grid-column-start: 3;
+    grid-column-end: 4;
+    border: 2px solid black;
+    border-radius: 20px;
+    background-color: white;
+    margin: 5px;
+    overflow: hidden;
+}
+.item5 {
+    grid-area: seeker;
+    grid-row-start: 3;
+    grid-row-end: 4;
+    grid-column-start: 3;
+    grid-column-end: 4;
+    border: 2px solid black;
+    border-radius: 20px;
+    background-color: white;
+    margin: 5px;
+    overflow: hidden;
+    aspect-ratio: 1.9;
+}
+.item6 {
+    position: relative;
+    grid-area: news;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    grid-column-start: 3;
+    grid-column-end: 4;
+    background: url(greenBackground.jpg);
+    background-size: cover;
+    border: 1px solid black;
+    border-radius: 500px;
+    overflow: hidden;
+    font-style: italic;
+    font-size: 1.1vmax;
+    font-weight: bold;
+}
+
+.item6div {
+    position: absolute;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    vertical-align: middle;
+    text-align: center;
+    width: 90%;
+    padding-left: 5%;
+    padding-right: 5%;
+
+}
+
+#collection {
+    display: flex;
+    height: calc(100% - 9px);
+    flex-direction: column;
+    border: 5px solid goldenrod;
+    border-radius: 8px;
+}
+
+#coinMaster {
+    display: none;
+    height: calc(100% - 9px);
+    flex-direction: column;
+    border: 5px solid goldenrod;
+    border-radius: 8px;
+    background: url(goldenCoinsBackground.jpg);
+    background-size: cover;
+}
+
+#specials {
+    display: none;
+    width: calc(100% - 9px);
+    height: calc(100% - 9px);
+    background-color: gray;
+    flex-direction: column;
+    border: 5px solid goldenrod;
+    border-radius: 8px;
+    background: url(backgroundCoins5.jpg);
+    background-size: cover;
+}
+
+#statistics {
+    display: none;
+    height: calc(100% - 9px);
+    flex-direction: column;
+    border: 5px solid goldenrod;
+    border-radius: 8px;
+}
+
+#settings {
+    display: none;
+    height: calc(100% - 9px);
+    flex-direction: column;
+    border: 5px solid goldenrod;
+    border-radius: 8px;
+}
+
+.collapsible {
+    background-color: #777;
+    color: white;
+    cursor: pointer;
+    padding: 12px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+}
+
+.active, .collapsible:hover {
+    background-color: #555;
+}
+
+.collapsible:after {
+    content: '\002B';
+    color: white;
+    font-weight: bold;
+    float: right;
+    margin-left: 5px;
+}
+
+.active:after {
+    content: "\2212";
+}
+
+.content {
+    padding: 0 0px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+    background-color: #f1f1f1;
+}
+
+.close {
+    background-color: rgb(236, 236, 236);
+    cursor: pointer;
+    width: 1.3vw;
+    height: 1.3vw;
+}
+
+.close:hover {
+    background-color: rgb(251, 58, 58);
+    color: white;
+}
+
+.coinbox {
+    float: left;
+    border: 2px solid black;
+    margin: 2px;
+    padding: 2px;
+    width: 8vw;
+    height: 5.2vw;
+    background-color: rgba(255, 255, 255, 0.848);
+    border-radius: 5%;
+    font-size: 1.1vmax;
+    position: relative;
+    display: grid;
+    grid-template-areas:
+        'coin date'
+        'coin date'
+        'mintage worthno';
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+}
+
+.coinbox1 {
+    grid-area: coin;
+    grid-row-start: 1;
+    grid-row-end: 3;
+    grid-column-start: 1;
+    grid-column-end: 2;
+}
+.coinbox2 {
+    grid-area: date;
+    grid-row-start: 1;
+    grid-row-end: 3;
+    grid-column-start: 2;
+    grid-column-end: 3;
+    text-align: center;
+    align-content: center;
+}
+.coinbox3 {
+    grid-area: mintage;
+    grid-row-start: 3;
+    grid-row-end: 4;
+    grid-column-start: 1;
+    grid-column-end: 2;
+    text-align: center;
+    align-content: center;
+}
+.coinbox7 {
+    grid-area: worthno;
+    grid-row-start: 3;
+    grid-row-end: 4;
+    grid-column-start: 2;
+    grid-column-end: 3;
+    text-align: center;
+    align-content: center;
+}
+
+.seekerbox {
+    display: grid;
+    grid-template-areas:
+        'number name name fuel'
+        'main main main fuel'
+        'exp exp exp fuel'
+        'prog prog prog fuel'
+        'chance chance interval fuel';
+    grid-template-columns: 1fr 1fr 1.75fr 0.25fr;
+    grid-template-rows: 10fr 13fr 13fr 4fr 10fr;
+    float: left;
+    border: 2px solid black;
+    margin: 0.5%;
+    width: 22%;
+    aspect-ratio: 0.95;
+    height: auto;
+    background-color: rgba(255, 255, 255, 0.848);
+    border-radius: 5px;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.seekerbox1 {
+    grid-area: number;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    grid-column-start: 1;
+    grid-column-end: 2;
+    border-right: 2px solid black;
+    border-bottom: 2px solid black;
+    background-color: rgb(231, 231, 231);
+    border-top-left-radius: 5px;
+    padding-left: 2px;
+    font-size: 1vmax;
+}
+
+.seekerbox2 {
+    grid-area: name;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    grid-column-start: 2;
+    grid-column-end: 4;
+    text-align: right;
+    border-bottom: 2px solid black;
+    background-color: rgb(231, 231, 231);
+    padding-right: 4px;
+    font-size: 1vmax;
+}
+
+.seekerbox3 {
+    grid-area: main;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    grid-column-start: 1;
+    grid-column-end: 4;
+    font-size: 1.3vmax;
+}
+
+.seekerbox4 {
+    grid-area: exp;
+    grid-row-start: 3;
+    grid-row-end: 4;
+    grid-column-start: 1;
+    grid-column-end: 4;
+    font-size: 1.1vmax;
+}
+
+.seekerbox5 {
+    grid-area: prog;
+    grid-row-start: 4;
+    grid-row-end: 5;
+    grid-column-start: 1;
+    grid-column-end: 4;
+    border-top: 2px solid black;
+    overflow: hidden;
+}
+
+.seekerbox6 {
+    grid-area: chance;
+    grid-row-start: 5;
+    grid-row-end: 6;
+    grid-column-start: 1;
+    grid-column-end: 3;
+    border-right: 2px solid black;
+    border-top: 2px solid black;
+    background-color: rgb(231, 231, 231);
+    border-bottom-left-radius: 5px;
+    padding-left: 2px;
+    font-size: 0.9vmax;
+}
+
+.seekerbox7 {
+    grid-area: interval;
+    grid-row-start: 5;
+    grid-row-end: 6;
+    grid-column-start: 3;
+    grid-column-end: 4;
+    text-align: right;
+    border-top: 2px solid black;
+    background-color: rgb(231, 231, 231);
+    padding-right: 4px;
+    font-size: 0.9vmax;
+}
+
+.seekerbox8 {
+    grid-area: fuel;
+    grid-row-start: 1;
+    grid-row-end: 6;
+    grid-column-start: 4;
+    grid-column-end: 5;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
+    border-left: 2px solid black;
+}
+
+.seekerboxBlank {
+    float: left;
+    border: 2px solid black;
+    width: 22%;
+    margin: 0.5%;
+    aspect-ratio: 0.95;
+    height: auto;
+    border-radius: 5px;
+    background-image: url("addSeeker.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.seekerboxBlank:hover {
+    background-image: url("addSeekerHover.png");
+    cursor: pointer;
+}
+
+.seekerboxRetired {
+    float: left;
+    border: 2px solid black;
+    width: 22%;
+    margin: 0.5%;
+    aspect-ratio: 0.95;
+    height: auto;
+    border-radius: 5px;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: rgb(255, 184, 184);
+    font-size: 1vmax;
+}
+
+.seekerLevelUpButton {
+    border: 1px solid black;
+    border-radius: 500px;
+    width: 50%;
+    margin: auto;
+    padding: 0% 5% 0% 0%;
+    text-align: right;
+    background: url('goldBuffalo.png'), cyan;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position-x: 15%;
+}
+
+.common {
+    background-color: rgb(149, 255, 149);
+}
+
+.uncommon {
+    background-color: rgb(160, 160, 255);
+}
+
+.rare {
+    background-color: rgb(255, 95, 95);
+}
+
+.ultra {
+    background-color: rgb(255, 85, 255);
+}
+
+a {
+    color: black;
+}
+
+.lvlUpgrade {
+    display: grid;
+    grid-template-areas:
+        'level description cost';
+    grid-template-columns: 2fr 15fr 3.5fr;
+    width: 97%;
+    height: 1.8vmax;
+    background-color:whitesmoke;
+    border: 1px solid black;
+    margin: 0.3vmax;
+    border-radius: 5px;
+    font-size: 1.1vmax;
+    cursor: pointer;
+    align-items: center;
+}
+
+.lvlUpgrade:hover {
+    background-color:gold;
+}
+
+.lvlUpgradeA {
+    grid-area: level;
+    grid-column-start: 1;
+    grid-column-end: 2;
+    text-align: center;
+}
+
+.lvlUpgradeB {
+    grid-area: description;
+    grid-column-start: 2;
+    grid-column-end: 3;
+    border-left: 1px solid rgb(109, 89, 64);
+    border-right: 1px solid rgb(109, 89, 64);
+    padding-left: 10px;
+}
+
+.lvlUpgradeC {
+    grid-area: cost;
+    grid-column-start: 3;
+    grid-column-end: 4;
+    text-align: center;
+}
+
+.findButton {
+    background-color:rgb(128, 249, 255);
+}
+
+.findButton:hover {
+    background-color:rgb(95, 213, 220);
+}
+
+.findButton:active {
+    background-color:rgb(118, 222, 228);
+}
+
+.magnifyingGlass {
+    width: 70%;
+    aspect-ratio: 1;
+    text-align: center;
+    border-radius:50%;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+    margin: 5%;
+    margin-right:auto;
+    margin-left:auto;
+    border: 2px solid black;
+    background-image: url(magnifyingGlass.jpg);
+    background-size: cover;
+}
+
+.magnifyingGlass:hover {
+    transition: 0.3s;
+    background-image: url(magnifyingGlassHover.jpg);
+}
+
+.magnifyingGlass:active {
+    transition: 0s;
+    background-image: url(magnifyingGlass.jpg);
+}
+
+.magnifyingGlass2 {
+    width: 70%;
+    font-size: 1.5vmax;
+    aspect-ratio: 1;
+    text-align: center;
+    border-radius:50%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    cursor: default;
+    margin: 5%;
+    margin-right:auto;
+    margin-left:auto;
+    border: 2px solid black;
+    background-color: rgb(169, 169, 246);
+}
+
+.buttonSpace {
+    border: 1px solid black;
+    padding: 3px;
+    padding-left: 10px;
+    padding-right: 10px;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+    text-align: center;
+    cursor: pointer;
+    background-color: gold;
+    width: 20%;
+    font-size: 1.1vmax;
+}
+
+.badge {
+    background-color: blue;
+    color: #fff;
+    font-size: 0.8em;
+    padding: 0.3vmax 0.6vmax;
+    border-radius: 500px;
+    position: absolute;
+    left: 32%;
+    top: -8%;
+    display: none;
+}
+
+.findChance {
+    background-color: gold;
+    color: black;
+    font-weight: bold;
+    font-size: 1vmax;
+    padding: 5px 10px;
+    border: 1px solid black;
+    border-radius: 500px;
+    margin-left: 5px;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    cursor: default;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.goldenBuffalo {
+    position: absolute;
+    left: 3%;
+    bottom: 3%;
+    cursor: default;
+    display: none;
+    width: 25%;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    border: 1px solid black;
+    background: url(goldbuffalo.png);
+    background-size: cover;
+}
+
+.goldenBuffaloAmount {
+    background-color: gold;
+    color: black;
+    font-weight: bold;
+    font-size: 1vmax;
+    padding: 0.08vmax 0.24vmax;
+    border: 1px solid black;
+    border-radius: 500px;
+    position: absolute;
+    left: 88%;
+    bottom: 0px;
+    cursor: default;
+    display: none;
+    flex-direction: column;
+    text-align: center;
+}
+
+.ascensionBubble {
+    background-color: rgb(82, 255, 66);
+    color: black;
+    font-weight: bold;
+    font-size: 1.5vmax;
+    padding: 5px 10px;
+    border: 1px solid black;
+    border-radius: 500px;
+    margin-left: 5px;
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    cursor: default;
+    text-align: center;
+    display: none;
+}
+
+.sellDuplicatesButtonActive {
+    width:80%;
+    background-color:gold;
+    border-radius:50px;
+    border:1px solid black;
+    padding:10px;
+    text-align:center;
+    align-content:center;
+    margin-left:auto;
+    margin-right:auto;
+    cursor:pointer;
+}
+
+.sellDuplicatesButtonActive:hover {
+    background-color:goldenrod;
+}
+
+.sellDuplicatesButtonActive:active {
+    background-color:gold;
+}
+
+.sellDuplicatesButtonInactive {
+    width:80%;
+    background-color:rgb(185, 185, 185);
+    color:darkslategray;
+    border-radius:50px;
+    border:1px solid black;
+    padding:10px;
+    text-align:center;
+    align-content:center;
+    margin-left:auto;
+    margin-right:auto;
+    cursor:default;
+}
+.goldBuffaloSpin {
+    animation-name: spin;
+    animation-direction: alternate;
+    animation-duration: 6000ms;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+@keyframes spin {
+    from {transform:rotate(-20deg);}
+    to {transform:rotate(20deg);}
+}
+.goldBuffaloScale {
+    animation-name: scale;
+    animation-direction: alternate;
+    animation-duration: 8000ms;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+@keyframes scale {
+    from {transform:scale(0.8);}
+    to {transform:scale(1.1);}
+}
+.fade-in {
+    animation: fadeIn 60s;
+}
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    17% { opacity: 1; }
+    83% { opacity: 1; }
+    100% { opacity: 0; }
+}
+.fade-away {
+    animation: fadeAway 5s;
+}
+@keyframes fadeAway {
+    0% { opacity: 1; }
+    60% { opacity: 1; }
+    100% { opacity: 0;}
+}
+
+.specials {
+    width: 100%;
+    aspect-ratio: 4/3;
+    overflow-y: hidden;
+    display: grid;
+    grid-template-areas:
+        'vending1 vending2 pill trader bank'
+        'vending1 vending2 fountain fountain bank'
+        'parking parking fountain fountain pusher'
+        'beach beach beach beach pusher'
+        'beach beach beach beach prestige';
+    grid-template-columns: 1fr 1fr 1fr 1fr 2fr;
+    grid-template-rows: 17fr 8fr 15fr 4fr 20fr;
+}
+
+.specialsMod {
+    width: 100%;
+    aspect-ratio: 4/3;
+    overflow-y: hidden;
+    display: grid;
+    grid-template-areas:
+        'picture inventory';
+    grid-template-columns: 6.5fr 3.5fr;
+}
+
+.specialsMod2 {
+    width: 100%;
+    aspect-ratio: 4/3;
+    overflow-y: hidden;
+    display: grid;
+    grid-template-areas:
+        'inventory picture';
+    grid-template-columns: 3.5fr 6.5fr;
+}
+
+.specialsMod3 {
+    width: 100%;
+    aspect-ratio: 4/3;
+    overflow-y: hidden;
+    background-size: cover;
+    border: 1px solid black;
+    display: grid;
+    grid-template-areas:
+        'bar bar bar prestigeStats'
+        'tile1 tile2 tile3 prestigeStats'
+        'tile4 tile5 tile6 prestigeStats'
+        'tile7 tile8 tile9 return';
+    grid-template-columns: 4fr 4fr 4fr 6fr;
+    grid-template-rows: 1fr 5fr 5fr 5fr;
+}
+
+.specials1 {
+    grid-area: vending1;
+    grid-row-start: 1;
+    grid-row-end: 3;
+    grid-column-start: 1;
+    grid-column-end: 2;
+    border: 2px solid black;
+    max-width: 100%;
+    max-height: 100%;
+    position: relative;
+}
+
+.specials2 {
+    grid-area: vending2;
+    grid-row-start: 1;
+    grid-row-end: 3;
+    grid-column-start: 2;
+    grid-column-end: 3;
+    border: 2px solid black;
+    max-width: 100%;
+    max-height: 100%;
+    position: relative;
+}
+
+.specials3 {
+    grid-area: pill;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    grid-column-start: 3;
+    grid-column-end: 4;
+    border: 2px solid black;
+    max-width: 100%;
+    max-height: 100%;
+    position: relative;
+}
+
+.specials4 {
+    grid-area: trader;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    grid-column-start: 4;
+    grid-column-end: 5;
+    border: 2px solid black;
+    max-width: 100%;
+    max-height: 100%;
+    position: relative;
+    bottom: 0px;
+}
+
+.specials4Mod {
+    grid-area: picture;
+    grid-column-start: 1;
+    grid-column-end: 2;
+    max-width: 100%;
+    max-height: 100%;
+    position: relative;
+}
+
+.specials4Mod2 {
+    grid-area: inventory;
+    grid-column-start: 2;
+    grid-column-end: 3;
+    border: 1px solid black;
+    /* max-width: 100%;
+    max-height: 100%; */
+    position: relative;
+    background-color: rgb(234, 234, 234);
+}
+
+.specials5 {
+    grid-area: bank;
+    grid-row-start: 1;
+    grid-row-end: 3;
+    grid-column-start: 5;
+    grid-column-end: 6;
+    border: 2px solid black;
+    max-width: 100%;
+    max-height: 100%;
+    position: relative;
+}
+
+.specials5Mod {
+    grid-area: picture;
+    grid-column-start: 2;
+    grid-column-end: 3;
+    max-width: 100%;
+    max-height: 100%;
+    position: relative;
+}
+
+.specials5Mod2 {
+    grid-area: inventory;
+    grid-column-start: 1;
+    grid-column-end: 2;
+    border: 1px solid black;
+    max-width: 100%;
+    max-height: 100%;
+    position: relative;
+    background-color: rgb(234, 234, 234);
+}
+
+.specials6 {
+    grid-area: parking;
+    grid-row-start: 3;
+    grid-row-end: 4;
+    grid-column-start: 1;
+    grid-column-end: 3;
+    border: 2px solid black;
+    max-width: 100%;
+    max-height: 100%;
+    position: relative;
+}
+
+.specials7 {
+    grid-area: fountain;
+    grid-row-start: 2;
+    grid-row-end: 4;
+    grid-column-start: 3;
+    grid-column-end: 5;
+    border: 2px solid black;
+    max-width: 100%;
+    max-height: 100%;
+    position: relative;
+}
+
+.specials8 {
+    grid-area: beach;
+    grid-row-start: 4;
+    grid-row-end: 6;
+    grid-column-start: 1;
+    grid-column-end: 5;
+    border: 2px solid black;
+    max-width: 100%;
+    max-height: 100%;
+    position: relative;
+}
+
+.specials9 {
+    grid-area: pusher;
+    grid-row-start: 3;
+    grid-row-end: 5;
+    grid-column-start: 5;
+    grid-column-end: 6;
+    border: 2px solid black;
+    max-width: 100%;
+    max-height: 100%;
+    position: relative;
+}
+
+.specials10 {
+    grid-area: prestige;
+    grid-row-start: 5;
+    grid-row-end: 6;
+    grid-column-start: 5;
+    grid-column-end: 6;
+    border: 2px solid black;
+    max-width: 100%;
+    max-height: 100%;
+    position: relative;
+}
+
+.prestige1 {
+    grid-area: bar;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    grid-column-start: 1;
+    grid-column-end: 4;
+    border: 2px solid black;
+    max-width: 100%;
+    max-height: 100%;
+    position: relative;
+    background-color: rgb(82, 255, 66);
+    padding: 2px;
+    font-size: 1.5vmax;
+    display: flex;
+    flex-direction: row;
+}
+
+.prestige2Mod {
+    grid-area: prestigeStats;
+    grid-row-start: 1;
+    grid-row-end: 4;
+    grid-column-start: 4;
+    grid-column-end: 5;
+    border: 2px solid black;
+    max-width: 100%;
+    max-height: 100%;
+    position: relative;
+    background: url(grayBg.jpg);
+    background-size: cover;
+    color: white;
+    padding: 2%;
+    font-size: 1vmax;
+    cursor: default;
+}
+
+.prestige2 {
+    grid-area: prestigeStats;
+    grid-row-start: 1;
+    grid-row-end: 4;
+    grid-column-start: 4;
+    grid-column-end: 5;
+    border: 2px solid black;
+    max-width: 100%;
+    max-height: 100%;
+    position: relative;
+    background: url(darkBlueBg.jpg);
+    background-size: cover;
+    color: white;
+    padding: 2%;
+    font-size: 1vmax;
+    cursor: default;
+    overflow-y: auto;
+}
+
+.prestige3 {
+    grid-area: return;
+    grid-row-start: 4;
+    grid-row-end: 5;
+    grid-column-start: 4;
+    grid-column-end: 5;
+    border: 2px solid black;
+    max-width: 100%;
+    max-height: 100%;
+    position: relative;
+    background: url(outerSpaceBackground.jpg);
+    background-size: cover;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    cursor: pointer;
+    font-size: 1.3vmax;
+}
+
+.prestige4 {
+    grid-area: tile1;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    grid-column-start: 1;
+    grid-column-end: 2;
+    border: 2px solid black;
+    max-width: 100%;
+    max-height: 100%;
+    position: relative;
+}
+
+.prestige5 {
+    grid-area: tile2;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    grid-column-start: 2;
+    grid-column-end: 3;
+    border: 2px solid black;
+    max-width: 100%;
+    max-height: 100%;
+    position: relative;
+}
+
+.prestige6 {
+    grid-area: tile3;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    grid-column-start: 3;
+    grid-column-end: 4;
+    border: 2px solid black;
+    max-width: 100%;
+    max-height: 100%;
+    position: relative;
+}
+
+.prestige7 {
+    grid-area: tile4;
+    grid-row-start: 3;
+    grid-row-end: 4;
+    grid-column-start: 1;
+    grid-column-end: 2;
+    border: 2px solid black;
+    max-width: 100%;
+    max-height: 100%;
+    position: relative;
+}
+
+.prestige8 {
+    grid-area: tile5;
+    grid-row-start: 3;
+    grid-row-end: 4;
+    grid-column-start: 2;
+    grid-column-end: 3;
+    border: 2px solid black;
+    max-width: 100%;
+    max-height: 100%;
+    position: relative;
+}
+
+.prestige9 {
+    grid-area: tile6;
+    grid-row-start: 3;
+    grid-row-end: 4;
+    grid-column-start: 3;
+    grid-column-end: 4;
+    border: 2px solid black;
+    max-width: 100%;
+    max-height: 100%;
+    position: relative;
+}
+
+.prestige10 {
+    grid-area: tile7;
+    grid-row-start: 4;
+    grid-row-end: 5;
+    grid-column-start: 1;
+    grid-column-end: 2;
+    border: 2px solid black;
+    max-width: 100%;
+    max-height: 100%;
+    position: relative;
+}
+
+.prestige11 {
+    grid-area: tile8;
+    grid-row-start: 4;
+    grid-row-end: 5;
+    grid-column-start: 2;
+    grid-column-end: 3;
+    border: 2px solid black;
+    max-width: 100%;
+    max-height: 100%;
+    position: relative;
+}
+
+.prestige12 {
+    grid-area: tile9;
+    grid-row-start: 4;
+    grid-row-end: 5;
+    grid-column-start: 3;
+    grid-column-end: 4;
+    border: 2px solid black;
+    max-width: 100%;
+    max-height: 100%;
+    position: relative;
+}
+
+.completeSpec {
+    width: 100%;
+    position: relative;
+    background: url(completedClouds2.jpg);
+    background-size: cover;
+    cursor: default;
+    font-size: 1.3vmax;
+    text-align: center;
+    justify-content: center;
+    color: yellow;
+}
+
+.subgrid {
+    width: 100%;
+    position: relative;
+    display: grid;
+    grid-template-areas:
+        'specName'
+        'specProgress'
+        'descend'
+        'horizon';
+    grid-template-rows: 3fr 2fr 2fr 3fr;
+    background: url(outerSpaceBackground.jpg);
+    background-size: cover;
+    cursor: default;
+}
+
+.subgrid1 {
+    grid-area: specName;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    text-align: center;
+    width: 100%;
+    font-size: 1.3vmax;
+    justify-content: center;
+    display: flex;
+    color: white;
+}
+
+.subgrid2 {
+    grid-area: specProgress;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    text-align: center;
+    width: 100%;
+    font-size: 1.2vmax;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    color: white;
+}
+
+.subgrid3 {
+    grid-area: descend;
+    grid-row-start: 3;
+    grid-row-end: 4;
+    text-align: center;
+    width: 100%;
+    font-size: 1.2vmax;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    color: white;
+    border: 1px solid rgba(0,0,0,0);
+    border-radius: 500px;
+    cursor: pointer;
+}
+
+.subgrid3:hover {
+    border: 1px solid white !important;
+    background-color: blue;
+}
+
+.subgrid3:active {
+    border: 1px solid white;
+    border-radius: 500px;
+    background-color: rgb(6, 106, 6);
+}
+
+.subgrid4 {
+    grid-area: horizon;
+    grid-row-start: 4;
+    grid-row-end: 5;
+    text-align: center;
+    width: 100%;
+    font-size: 1.2vmax;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+.subgridMod {
+    width: 100%;
+    position: relative;
+    display: grid;
+    grid-template-areas:
+        'specNameMod'
+        'descendMod'
+        'horizonMod';
+    grid-template-rows: 5fr 2fr 3fr;
+    background: url(outerSpaceGrayBackground.jpg);
+    background-size: cover;
+    cursor: default;
+}
+
+.subgridMod1 {
+    grid-area: specNameMod;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    text-align: center;
+    width: 100%;
+    font-size: 1.3vmax;
+    justify-content: center;
+    display: flex;
+    color: white;
+}
+
+.subgridMod3 {
+    grid-area: descendMod;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    text-align: center;
+    width: 100%;
+    font-size: 1.2vmax;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    color: white;
+    border: 1px solid rgba(0,0,0,0);
+    border-radius: 500px;
+    cursor: pointer;
+}
+
+.subgridMod3:hover {
+    border: 1px solid white !important;
+    background-color: blue;
+}
+
+.subgridMod3:active {
+    border: 1px solid white;
+    border-radius: 500px;
+    background-color: rgb(6, 106, 6);
+}
+
+.subgridMod4 {
+    grid-area: horizonMod;
+    grid-row-start: 3;
+    grid-row-end: 4;
+    text-align: center;
+    width: 100%;
+    font-size: 1.2vmax;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+#beachPicActive {
+    cursor: url("metalDetector.ico") 7 25, default;
+}
+
+#beachPicFound {
+    cursor: url("shovel.ico") 4 30, default;
+}
+
+#beachPicInactive {
+    cursor: default;
+}
+
+#xMarksSpot {
+    cursor: url("shovel.ico") 4 30, default;
+}
+
+.countdownTimer {
+    position: absolute;
+    float: right;
+    top: 0px;
+    right: 0px;
+    background-color: pink;
+    border: 1px solid black;
+    padding: 0.1vmax;
+    cursor: default;
+    font-size: 1.05vmax;
+}
+
+#ready9 {
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
+    background-color: lightgreen;
+    border: 1px solid black;
+    padding: 2px;
+    cursor: pointer;
+}
+
+.pillQuantity {
+    position: absolute;
+    float: left;
+    bottom: 0px;
+    left: 0px;
+    color: white;
+    padding: 2px;
+    cursor: default;
+    font-size: 1.05vmax;
+}
+
+#browseSalesman {
+    position: absolute;
+    bottom: 0px;
+    left: 50%;
+    transform: translate(-50%,0%);
+    background-color: rgb(242, 254, 115);
+    border-radius: 10px;
+    border: 1px solid black;
+    padding: 2px;
+    cursor: pointer;
+}
+
+.inventoryItem {
+    background-color: rgb(255, 159, 159);
+    border-radius: 5px;
+    border: 2px solid gray;
+    margin: 5px;
+    padding: 3px;
+    display: grid;
+    grid-template-areas:
+        'itemPic item item'
+        'itemPic cointype cointype'
+        'itemPic rarity newOrDup'
+        'itemPic price price'
+        'itemPic button button';
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 3fr 3fr 2fr 3fr 3fr;
+    font-size: 0.8em;
+    text-align: center;
+}
+
+.inventoryItem1 {
+    grid-area: itemPic;
+    grid-row-start: 1;
+    grid-row-end: 6;
+    grid-column-start: 1;
+    grid-column-end: 2;
+    display: flex;
+    align-items: center;
+}
+
+.inventoryItem2 {
+    grid-area: item;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    grid-column-start: 2;
+    grid-column-end: 4;
+}
+
+.inventoryItem3 {
+    grid-area: cointype;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    grid-column-start: 2;
+    grid-column-end: 4;
+}
+
+.inventoryItem4 {
+    grid-area: rarity;
+    grid-row-start: 3;
+    grid-row-end: 4;
+    grid-column-start: 2;
+    grid-column-end: 3;
+    border-right: 2px solid black;
+    font-size: 0.75em;
+}
+
+.inventoryItem5 {
+    grid-area: newOrDup;
+    grid-row-start: 3;
+    grid-row-end: 4;
+    grid-column-start: 3;
+    grid-column-end: 4;
+    font-size: 0.75em;
+}
+
+.inventoryItem6 {
+    grid-area: price;
+    grid-row-start: 4;
+    grid-row-end: 5;
+    grid-column-start: 2;
+    grid-column-end: 4;
+}
+
+.inventoryItem7 {
+    grid-area: button;
+    grid-row-start: 5;
+    grid-row-end: 6;
+    grid-column-start: 2;
+    grid-column-end: 4;
+}
+
+.shovel {
+    background-color: gold;
+    border-radius: 5px;
+    border: 2px solid gray;
+    margin: 5px;
+    padding: 3px;
+    display: grid;
+    grid-template-areas:
+        'itemPic item item'
+        'itemPic desc desc'
+        'itemPic price price'
+        'itemPic button button';
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 3fr 5fr 3fr 3fr;
+    font-size: 0.8em;
+    text-align: center;
+}
+
+.shovel1 {
+    grid-area: itemPic;
+    grid-row-start: 1;
+    grid-row-end: 5;
+    grid-column-start: 1;
+    grid-column-end: 2;
+    display: flex;
+    align-items: center;
+}
+
+.shovel2 {
+    grid-area: item;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    grid-column-start: 2;
+    grid-column-end: 4;
+}
+
+.shovel3 {
+    grid-area: desc;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    grid-column-start: 2;
+    grid-column-end: 4;
+}
+
+.shovel4 {
+    grid-area: price;
+    grid-row-start: 3;
+    grid-row-end: 4;
+    grid-column-start: 2;
+    grid-column-end: 4;
+}
+
+.shovel5 {
+    grid-area: button;
+    grid-row-start: 4;
+    grid-row-end: 5;
+    grid-column-start: 2;
+    grid-column-end: 4;
+}
+
+.sellPill {
+    background-color: gold;
+    border-radius: 5px;
+    border: 2px solid gray;
+    margin: 5px;
+    padding: 3px;
+    display: grid;
+    grid-template-areas:
+        'picture pillName pillName'
+        'picture pillPrice pillPrice'
+        'picture pillButton pillButton';
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    font-size: 0.8em;
+    text-align: center;
+}
+
+.sellPill1 {
+    grid-area: picture;
+    grid-row-start: 1;
+    grid-row-end: 4;
+    grid-column-start: 1;
+    grid-column-end: 2;
+    display: flex;
+    align-items: center;
+}
+
+.sellPill2 {
+    grid-area: pillName;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    grid-column-start: 2;
+    grid-column-end: 4;
+}
+
+.sellPill3 {
+    grid-area: pillPrice;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    grid-column-start: 2;
+    grid-column-end: 4;
+}
+
+.sellPill4 {
+    grid-area: pillButton;
+    grid-row-start: 3;
+    grid-row-end: 4;
+    grid-column-start: 2;
+    grid-column-end: 4;
+}
+
+.boughtDiv {
+    display: none;
+    background-color: gold;
+    border-radius: 5px;
+    border: 2px solid gray;
+    margin: 5px;
+    padding: 3px;
+    text-align: center;
+    cursor: default;
+    font-size: 0.8em;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.pennyRoll {
+    width: 100%;
+    object-fit: cover;
+}
+
+.nickelRoll {
+    width: 98%;
+    object-fit: cover;
+}
+
+.dimeRoll {
+    width: 86%;
+    object-fit: cover;
+}
+
+.quarterRoll {
+    width: 90%;
+    object-fit: cover;
+}
+
+.halfDollarRoll {
+    width: 55%;
+    object-fit: cover;
+}
+
+.dollarRoll {
+    width: 70%;
+    object-fit: cover;
+}
+
+.rollProgressArea {
+    display: grid;
+    grid-template-areas:
+        'penny quarter'
+        'pennyTimer quarterTimer'
+        'pennyProgress quarterProgress'
+        'nickel halfDollar'
+        'nickelTimer halfDollarTimer'
+        'nickelProgress halfDollarProgress'
+        'dime dollar'
+        'dimeTimer dollarTimer'
+        'dimeProgress dollarProgress';
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 0.7fr 0.7fr 1fr 0.7fr 0.7fr 1fr 0.7fr 0.7fr;
+    text-align: center;
+    font-size:1vmax;
+}
+
+.rollProgressArea1 {
+    grid-area: penny;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    grid-column-start: 1;
+    grid-column-end: 2;
+}
+
+.rollProgressArea2 {
+    grid-area: pennyProgress;
+    grid-row-start: 3;
+    grid-row-end: 4;
+    grid-column-start: 1;
+    grid-column-end: 2;
+}
+
+.rollProgressArea3 {
+    grid-area: nickel;
+    grid-row-start: 4;
+    grid-row-end: 5;
+    grid-column-start: 1;
+    grid-column-end: 2;
+}
+
+.rollProgressArea4 {
+    grid-area: nickelProgress;
+    grid-row-start: 6;
+    grid-row-end: 7;
+    grid-column-start: 1;
+    grid-column-end: 2;
+}
+
+.rollProgressArea5 {
+    grid-area: dime;
+    grid-row-start: 7;
+    grid-row-end: 8;
+    grid-column-start: 1;
+    grid-column-end: 2;
+}
+
+.rollProgressArea6 {
+    grid-area: dimeProgress;
+    grid-row-start: 9;
+    grid-row-end: 10;
+    grid-column-start: 1;
+    grid-column-end: 2;
+}
+
+.rollProgressArea7 {
+    grid-area: quarter;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    grid-column-start: 2;
+    grid-column-end: 3;
+}
+
+.rollProgressArea8 {
+    grid-area: quarterProgress;
+    grid-row-start: 3;
+    grid-row-end: 4;
+    grid-column-start: 2;
+    grid-column-end: 3;
+}
+
+.rollProgressArea9 {
+    grid-area: halfDollar;
+    grid-row-start: 4;
+    grid-row-end: 5;
+    grid-column-start: 2;
+    grid-column-end: 3;
+}
+
+.rollProgressArea10 {
+    grid-area: halfDollarProgress;
+    grid-row-start: 6;
+    grid-row-end: 7;
+    grid-column-start: 2;
+    grid-column-end: 3;
+}
+
+.rollProgressArea11 {
+    grid-area: dollar;
+    grid-row-start: 7;
+    grid-row-end: 8;
+    grid-column-start: 2;
+    grid-column-end: 3;
+}
+
+.rollProgressArea12 {
+    grid-area: dollarProgress;
+    grid-row-start: 9;
+    grid-row-end: 10;
+    grid-column-start: 2;
+    grid-column-end: 3;
+}
+
+.rollTimerArea1 {
+    grid-area: pennyTimer;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    grid-column-start: 1;
+    grid-column-end: 2;
+    font-size: 0.8em;
+}
+
+.rollTimerArea2 {
+    grid-area: nickelTimer;
+    grid-row-start: 5;
+    grid-row-end: 6;
+    grid-column-start: 1;
+    grid-column-end: 2;
+    font-size: 0.8em;
+}
+
+.rollTimerArea3 {
+    grid-area: dimeTimer;
+    grid-row-start: 8;
+    grid-row-end: 9;
+    grid-column-start: 1;
+    grid-column-end: 2;
+    font-size: 0.8em;
+}
+
+.rollTimerArea4 {
+    grid-area: quarterTimer;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    grid-column-start: 2;
+    grid-column-end: 3;
+    font-size: 0.8em;
+}
+
+.rollTimerArea5 {
+    grid-area: halfDollarTimer;
+    grid-row-start: 5;
+    grid-row-end: 6;
+    grid-column-start: 2;
+    grid-column-end: 3;
+    font-size: 0.8em;
+}
+
+.rollTimerArea6 {
+    grid-area: dollarTimer;
+    grid-row-start: 8;
+    grid-row-end: 9;
+    grid-column-start: 2;
+    grid-column-end: 3;
+    font-size: 0.8em;
+}
+
+.shinyButton {
+    position: relative;
+    cursor: pointer;
+    padding: 0.78vw 1.56vw;
+    margin: 0.52vw;
+    background: rgb(0, 9, 174);
+    color: #fff;
+    text-decoration: none;
+    letter-spacing: 1px;
+    border: 1px solid #000;
+    transition: 0.5s;
+    overflow: hidden;
+    border-radius: 500px;
+    box-shadow: 2px 4px 8px 0 rgba(0,0,0,0.2);
+    font-size: 1vmax;
+    text-align: center;
+}
+.shinyButton:hover {
+    background: #1500ff;
+}
+.shinyButton::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    Left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg,transparent,#fff,transparent);
+    transition: 0.5s;
+}
+.shinyButton:hover::before {
+    Left: 100%;
+}
+
+.shinyButtonInactive {
+    position: relative;
+    cursor: default;
+    padding: 0.78vw 1.56vw;
+    margin: 0.52vw;
+    background: rgb(181, 181, 181);
+    color: black;
+    text-decoration: none;
+    letter-spacing: 1px;
+    border: 1px solid #000;
+    transition: 0.5s;
+    overflow: hidden;
+    border-radius: 500px;
+    font-size: 1vmax;
+    text-align: center;
+}
+
+.readyBadge {
+    background-color: red;
+    color: #fff;
+    font-size: 0.8em;
+    padding: 4px 8px;
+    border-radius: 500px;
+    border: 1px solid darkred;
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    display: none;
+}
+
+.bankAccount {
+    display: grid;
+    grid-template-areas:
+        'amount'
+        'change';
+    grid-template-rows: 1.1fr 0.9fr;
+    position: relative;
+    text-align: center;
+    border-radius: 5px;
+    border: 2px solid gray;
+    margin: 15px 5px 15px 5px;
+    padding: 6px 3px 1px 3px;
+}
+
+.bankAccountArea2 {
+    grid-area: amount;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    text-align: right;
+    font-size: 1.5vmax;
+}
+
+.bankAccountArea3 {
+    grid-area: change;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    text-align: right;
+    font-size: 1.1vmax;
+}
+
+.bankAccountExtra {
+    text-align: center;
+    border-radius: 5px;
+    position: absolute;
+    border: 2px solid rgb(96, 96, 96);
+    margin: 0px;
+    padding: 1px;
+    left: -3%;
+    top: -25%;
+    font-size: 1vmax;
+}
+
+.coinmasterMessageNumber {
+    background-color: white;
+    font-size: 1vmax;
+    padding: 0.2vmax 0.4vmax;
+    height: 1vmax;
+    margin: 0.2vmax;
+    border-radius: 500px;
+    border: 1px solid black;
+    cursor: pointer;
+    line-height: 1vmax;
+    visibility: hidden;
+}
+
+.coinmasterMessage {
+    background-color: white;
+    border-radius: 10px;
+    border: 1px solid black;
+    padding: 5px;
+    font-size: 1vmax;
+    cursor: default;
+    display: none;
+}
+
+.crossed {
+    background: 
+        linear-gradient(to top left,
+            rgba(0,0,0,0) 0%,
+            rgba(0,0,0,0) calc(50% - 0.8px),
+            rgba(0,0,0,1) 50%,
+            rgba(0,0,0,0) calc(50% + 0.8px),
+            rgba(0,0,0,0) 100%),
+        linear-gradient(to top right,
+            rgba(0,0,0,0) 0%,
+            rgba(0,0,0,0) calc(50% - 0.8px),
+            rgba(0,0,0,1) 50%,
+            rgba(0,0,0,0) calc(50% + 0.8px),
+            rgba(0,0,0,0) 100%);
+}
+
+#endingDiv {
+    display: none;
+    grid-template-areas:
+        'master master'
+        'masterCoin finalText'
+        'masterCoinLabel finalText';
+    grid-template-rows: 2fr 5fr 7fr;
+    grid-template-columns: 3fr 7fr;
+    width: 98vw;
+    height: 56.25vw;
+    max-height: 98vh;
+    max-width: 220vh;
+    color: white;
+    text-align: center;
+    cursor: default;
+    margin: auto;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    opacity: 0;
+}
+
+.endingDiv1 {
+    grid-area: master;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    grid-column-start: 1;
+    grid-column-end: 3;
+    font-size: 3vmax;
+}
+
+.endingDiv2 {
+    visibility: hidden;
+    grid-area: masterCoin;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    grid-column-start: 1;
+    grid-column-end: 2;
+    width: 100%;
+    font-size: 1.5vmax;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.endingDiv3 {
+    visibility: hidden;
+    grid-area: masterCoinText;
+    grid-row-start: 3;
+    grid-row-end: 4;
+    grid-column-start: 1;
+    grid-column-end: 2;
+    font-size: 1.8vmax;
+    padding-top: 1%;
+}
+
+.endingDiv4 {
+    grid-area: finalText;
+    grid-row-start: 2;
+    grid-row-end: 4;
+    grid-column-start: 2;
+    grid-column-end: 3;
+    font-size: 1.2vmax;
+    max-height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.sadWomanFinal {
+    background: url('sadWomanTakesCoin.png');
+    background-size: auto 100%;
+    background-repeat: no-repeat;
+    background-position: 0% 100%;
+    height: 100%;
+    width: 35%;
+    transition: all 10s ease-in-out;
+}
+
+.sadWomanFinal:hover {
+    background-size: auto 400%;
+    background-position: 30% 75%;
+}
+
+.glowing1 {
+    border-radius: 500px;
+    -webkit-box-shadow:0 0 20px red; 
+    -moz-box-shadow: 0 0 20px red; 
+    box-shadow:0 0 20px red;
+    animation: glow1 2s infinite linear;
+}
+.glowing2 {
+    border-radius: 500px;
+    -webkit-box-shadow:0 0 20px orange; 
+    -moz-box-shadow: 0 0 20px orange; 
+    box-shadow:0 0 20px orange;
+    animation: glow2 2s infinite linear;
+}
+.glowing3 {
+    border-radius: 500px;
+    -webkit-box-shadow:0 0 20px yellow; 
+    -moz-box-shadow: 0 0 20px yellow; 
+    box-shadow:0 0 20px yellow;
+    animation: glow3 2s infinite linear;
+}
+.glowing4 {
+    border-radius: 500px;
+    -webkit-box-shadow:0 0 20px lightgreen; 
+    -moz-box-shadow: 0 0 20px lightgreen; 
+    box-shadow:0 0 20px lightgreen;
+    animation: glow4 2s infinite linear;
+}
+.glowing5 {
+    border-radius: 500px;
+    -webkit-box-shadow:0 0 20px rgb(0, 192, 0); 
+    -moz-box-shadow: 0 0 20px rgb(0, 192, 0); 
+    box-shadow:0 0 20px rgb(0, 192, 0);
+    animation: glow5 2s infinite linear;
+}
+.glowing6 {
+    border-radius: 500px;
+    -webkit-box-shadow:0 0 20px lightblue; 
+    -moz-box-shadow: 0 0 20px lightblue; 
+    box-shadow:0 0 20px lightblue;
+    animation: glow6 2s infinite linear;
+}
+.glowing7 {
+    border-radius: 500px;
+    -webkit-box-shadow:0 0 20px blue; 
+    -moz-box-shadow: 0 0 20px blue; 
+    box-shadow:0 0 20px blue;
+    animation: glow7 2s infinite linear;
+}
+.glowing8 {
+    border-radius: 500px;
+    -webkit-box-shadow:0 0 20px violet; 
+    -moz-box-shadow: 0 0 20px violet; 
+    box-shadow:0 0 20px violet;
+    animation: glow8 2s infinite linear;
+}
+.glowing9 {
+    border-radius: 500px;
+    -webkit-box-shadow:0 0 20px pink; 
+    -moz-box-shadow: 0 0 20px pink; 
+    box-shadow:0 0 20px pink;
+    animation: glow9 2s infinite linear;
+}
+
+@keyframes glow1 {
+    0% {
+        -webkit-box-shadow:0 0 20px red; 
+        -moz-box-shadow: 0 0 20px red; 
+        box-shadow:0 0 20px red;
+    }
+    50% {
+        -webkit-box-shadow:0 0 0px red; 
+        -moz-box-shadow: 0 0 0px red; 
+        box-shadow:0 0 0px red;}
+    100% {
+        -webkit-box-shadow:0 0 20px red; 
+        -moz-box-shadow: 0 0 20px red; 
+        box-shadow:0 0 20px red;
+    }
+}
+
+@keyframes glow2 {
+    0% {
+        -webkit-box-shadow:0 0 20px orange; 
+        -moz-box-shadow: 0 0 20px orange; 
+        box-shadow:0 0 20px orange;
+    }
+    50% {
+        -webkit-box-shadow:0 0 0px orange; 
+        -moz-box-shadow: 0 0 0px orange; 
+        box-shadow:0 0 0px orange;}
+    100% {
+        -webkit-box-shadow:0 0 20px orange; 
+        -moz-box-shadow: 0 0 20px orange; 
+        box-shadow:0 0 20px orange;
+    }
+}
+
+@keyframes glow3 {
+    0% {
+        -webkit-box-shadow:0 0 20px yellow; 
+        -moz-box-shadow: 0 0 20px yellow; 
+        box-shadow:0 0 20px yellow;
+    }
+    50% {
+        -webkit-box-shadow:0 0 0px yellow; 
+        -moz-box-shadow: 0 0 0px yellow; 
+        box-shadow:0 0 0px yellow;}
+    100% {
+        -webkit-box-shadow:0 0 20px yellow; 
+        -moz-box-shadow: 0 0 20px yellow; 
+        box-shadow:0 0 20px yellow;
+    }
+}
+
+@keyframes glow4 {
+    0% {
+        -webkit-box-shadow:0 0 20px lightgreen; 
+        -moz-box-shadow: 0 0 20px lightgreen; 
+        box-shadow:0 0 20px lightgreen;
+    }
+    50% {
+        -webkit-box-shadow:0 0 0px lightgreen; 
+        -moz-box-shadow: 0 0 0px lightgreen; 
+        box-shadow:0 0 0px lightgreen;}
+    100% {
+        -webkit-box-shadow:0 0 20px lightgreen; 
+        -moz-box-shadow: 0 0 20px lightgreen; 
+        box-shadow:0 0 20px lightgreen;
+    }
+}
+
+@keyframes glow5 {
+    0% {
+        -webkit-box-shadow:0 0 20px rgb(0, 192, 0); 
+        -moz-box-shadow: 0 0 20px rgb(0, 192, 0); 
+        box-shadow:0 0 20px rgb(0, 192, 0);
+    }
+    50% {
+        -webkit-box-shadow:0 0 0px rgb(0, 192, 0); 
+        -moz-box-shadow: 0 0 0px rgb(0, 192, 0); 
+        box-shadow:0 0 0px rgb(0, 192, 0);}
+    100% {
+        -webkit-box-shadow:0 0 20px rgb(0, 192, 0); 
+        -moz-box-shadow: 0 0 20px rgb(0, 192, 0); 
+        box-shadow:0 0 20px rgb(0, 192, 0);
+    }
+}
+
+@keyframes glow6 {
+    0% {
+        -webkit-box-shadow:0 0 20px lightblue; 
+        -moz-box-shadow: 0 0 20px lightblue; 
+        box-shadow:0 0 20px lightblue;
+    }
+    50% {
+        -webkit-box-shadow:0 0 0px lightblue; 
+        -moz-box-shadow: 0 0 0px lightblue; 
+        box-shadow:0 0 0px lightblue;}
+    100% {
+        -webkit-box-shadow:0 0 20px lightblue; 
+        -moz-box-shadow: 0 0 20px lightblue; 
+        box-shadow:0 0 20px lightblue;
+    }
+}
+
+@keyframes glow7 {
+    0% {
+        -webkit-box-shadow:0 0 20px blue; 
+        -moz-box-shadow: 0 0 20px blue; 
+        box-shadow:0 0 20px blue;
+    }
+    50% {
+        -webkit-box-shadow:0 0 0px blue; 
+        -moz-box-shadow: 0 0 0px blue; 
+        box-shadow:0 0 0px blue;}
+    100% {
+        -webkit-box-shadow:0 0 20px blue; 
+        -moz-box-shadow: 0 0 20px blue; 
+        box-shadow:0 0 20px blue;
+    }
+}
+
+@keyframes glow8 {
+    0% {
+        -webkit-box-shadow:0 0 20px violet; 
+        -moz-box-shadow: 0 0 20px violet; 
+        box-shadow:0 0 20px violet;
+    }
+    50% {
+        -webkit-box-shadow:0 0 0px violet; 
+        -moz-box-shadow: 0 0 0px violet; 
+        box-shadow:0 0 0px violet;}
+    100% {
+        -webkit-box-shadow:0 0 20px violet; 
+        -moz-box-shadow: 0 0 20px violet; 
+        box-shadow:0 0 20px violet;
+    }
+}
+
+@keyframes glow9 {
+    0% {
+        -webkit-box-shadow:0 0 20px pink; 
+        -moz-box-shadow: 0 0 20px pink; 
+        box-shadow:0 0 20px pink;
+    }
+    50% {
+        -webkit-box-shadow:0 0 0px pink; 
+        -moz-box-shadow: 0 0 0px pink; 
+        box-shadow:0 0 0px pink;}
+    100% {
+        -webkit-box-shadow:0 0 20px pink; 
+        -moz-box-shadow: 0 0 20px pink; 
+        box-shadow:0 0 20px pink;
+    }
+}
+
+#openingDiv {
+    display: none;
+    margin: auto;
+    position: absolute;
+    background: url('hotelLobby.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    opacity: 1;
+}
+
+#achievementBlock {
+    display: inline-block;
+    overflow-x: wrap;
+    background: rgba(81,81,81,0.85);
+    width: 90.8%;
+    margin: 0% 3.8% 0% 3.8%;
+    padding: 0.5%;
+    /* border: 1px solid black; */
+}
+
+.achievementBox {
+    position: relative;
+    width: 7.33%;
+    aspect-ratio: 1;
+    border-radius: 0.4vw;
+    text-align: center;
+    margin: 0.5%;
+    float: left;
+    opacity: 1;
+    background: url("qMark.png");
+    background-size: contain;
+    background-position-x: center;
+    background-position-y: center;
+    background-color: gray;
+    cursor: pointer;
+}
+
+.achievementBox .tooltip {
+    visibility: hidden;
+    width: 250%;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    border: 2px solid gold;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -125%;
+    opacity: 0;
+    pointer-events: none;
+    font-size: 1vmax;
+    /* transition: opacity 0.3s; */
+}
+
+.achievementBox .tooltip::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #333 transparent transparent transparent;
+}
+  
+.achievementBox:hover .tooltip {
+    visibility: visible;
+    opacity: 1;
+}
+
+.achPopup {
+    position: absolute;
+    border-radius: 5px;
+    font-size: 1.1vmax;
+    cursor: pointer;
+    text-align: center;
+    padding: 0.2%;
+    left: 40%;
+    bottom: 5%;
+    width: 20%;
+    z-index: 100;
+    background-color: #333;
+    border: 2px solid gold;
+    color: #fff;
+}
+
+.slider {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 0.5vmax;
+    border-radius: 5px;  
+    background: blue;
+    outline: none;
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 1vmax;
+    height: 1vmax;
+    border-radius: 50%; 
+    background: blue;
+    cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+    width: 1vmax;
+    height: 1vmax;
+    border-radius: 50%;
+    background: blue;
+    cursor: pointer;
+}
+
+.prevent-select {
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
+}
+
+#timeline {
+	width: 60%;
+    height: 0.5vmax;
+    margin-top: auto;
+    margin-bottom: auto;
+	background: #4200f7;
+	float: left;
+	border-radius: 15px;
+    cursor: pointer;
+}
+
+#playhead {
+    height: 1vmax;
+    aspect-ratio: 1;
+    margin-top: -0.25vmax;
+    border-radius: 50%;
+    background: rgba(0,0,0,1);
+}
+
+.toggleMute {
+    width: 2%;
+    padding: 1%;
+    background: url('soundOn.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position-y: center;
+    background-color: rgb(144, 255, 144);
+    cursor: pointer;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+.toggleMute2 {
+    width: 2%;
+    padding: 1%;
+    background: url('musicOn.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position-y: center;
+    background-color: rgb(144, 255, 144);
+    cursor: pointer;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+#feedBottom {
+    position: absolute;
+    right: 5%;
+    bottom: 4%;
+    background: rgb(72, 198, 240);
+    border: 1px solid black;
+    border-radius: 3px;
+    width: 7%;
+    height: 5%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    font-size: 1.3vmax;
+    cursor: pointer;
+}
+
+.colorKey {
+    width: 12%;
+    border: 1px solid black;
+    border-radius: 8px;
+    text-align: center;
+    padding: 0.25%;
+    margin: 0.25% 2% 0.25% 2%;
+    font-weight: bold;
+}
+
+#autoClickDiv {
+    position: absolute;
+    right: 3%;
+    bottom: 3%;
+    cursor: default;
+    width: 25%;
+    border-radius: 8px;
+    border: 1px solid black;
+    text-align: center;
+}
