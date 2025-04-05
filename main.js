@@ -3826,13 +3826,6 @@ function initialize(loading) {
       seekerHired[7] = 0
     }
 
-    if (openingDone == true) {
-      document.getElementById("gridContainer").style.display = "grid"
-    }
-    else {
-      document.getElementById("openingDiv").style.display = "block"
-    }
-
     //Base values for powers
     searchPower = 1 * 1.1 ** ascensionLevel
     extraSeekerFactor = 1.1 ** ascensionLevel
@@ -3864,6 +3857,12 @@ function initialize(loading) {
 
     remainingTime[6] = 100
     remainingTime[9] = 1
+  }
+  if (openingDone == true) {
+    document.getElementById("gridContainer").style.display = "grid"
+  }
+  else {
+    document.getElementById("openingDiv").style.display = "block"
   }
   typeCount = [[0,0,0,0,0,0,0],[0,0,0,0,0,0,0],[0,0,0,0,0,0,0],[0,0,0,0,0,0,0],[0,0,0,0,0,0,0]]
 
