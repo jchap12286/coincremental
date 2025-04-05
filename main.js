@@ -5849,6 +5849,9 @@ function getGoldBuffalo() {
   document.getElementById("feedDiv"+feedCount).innerHTML = ("><span style='color:goldenrod'> You found "
     + num + " Golden Buffalo nickel" + coinSingPlural + "!")
   goldenAchCheck()
+  if (achHave[98] == 0 && num == 12) {
+    achAward(98)
+  }
 }
 
 function goldenAchCheck() {
@@ -5878,9 +5881,6 @@ function goldenAchCheck() {
   }
   if (achHave[97] == 0 && goldenBuffaloCount >= 300) {
     achAward(97)
-  }
-  if (achHave[98] == 0 && num == 12) {
-    achAward(98)
   }
 }
 
